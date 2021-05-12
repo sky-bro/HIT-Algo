@@ -2,6 +2,11 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import math
+import sys
+
+datafile = 'data.txt'
+if len(sys.argv) > 1:
+       datafile = sys.argv[1]
 
 fig = plt.figure()
 ax = fig.add_subplot(121)
@@ -14,7 +19,7 @@ ax2.set(title='log(t) - K',
 
 ys = [[], [], []]
 ys2 = [[], [], []]
-with open('data.txt', 'r') as f:
+with open(datafile, 'r') as f:
     line = f.readline()
     lo = int(line.split()[0])
     while line:

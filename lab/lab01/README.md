@@ -22,9 +22,11 @@
 ### 绘图
 
 * 需要安装`matplotlib`和`numpy`
-* 运行`python draw.py`即会读取上面生成的`data.txt`进行绘图
-  ![benchmark](images/benchmark.png)
+* 运行`python draw.py [datafile]`即会读取上面生成的`data.txt`进行绘图
+  ![benchmark-old](images/benchmark-old.png)
 * 可以看出BruteForceCH的运行时间波动比较大，且运行时间随数据集增大增长更快，另外两种算法的运行时间随数据集增大增长比较平稳。也对应了他们各自的复杂度: BruteForceCH是`O(n^4)`, 另外两个是`nlog(n)`.
+* 在修复BruteForceCH中的bug之后([commit: fix bug in BruteForceCH](https://github.com/sky-bro/HIT-Algo/commit/c8d9082a97aba99b796b51aed4c9f525d0f53115))，因为如果外层循环的点被标记了删除，那么内层循环会break到上一层，所以实际的复杂度很难达到`n^4`，所以新的时间-样本大小的绘图如下
+  ![benchmark](images/benchmark.png)
 
 ## Refs
 
