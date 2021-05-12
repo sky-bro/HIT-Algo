@@ -15,13 +15,14 @@ void printArr(const vector<T> &arr) {
     cout << endl;
 }
 
-void time_it(function<void()> f) {
+vector<Point<int>> time_it(function<vector<Point<int>>()> f) {
     auto begin = std::chrono::steady_clock::now();
-    f();
+    auto res = f();
     auto end = std::chrono::steady_clock::now();
     cout << fixed << setprecision(6)
          << (std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count()) / 1e6
          << " ";
+    return res;
 }
 
 int main(int argc, char const *argv[]) {
@@ -30,15 +31,26 @@ int main(int argc, char const *argv[]) {
     CHs.emplace_back(make_unique<GrahamScanCH>());
     CHs.emplace_back(make_unique<DivAndConCH>());
     int step = 10, k0 = 0, k1 = 10000;
-    // int step = 1, k0 = 1, k1 = 1000;
+    // int step = 1, k0 = 0, k1 = 1000;
     for (int k = k0; k <= k1; k += step) {
         vector<Point<int>> P = PointsSampler::sample_k(k);
         // cout << "sample size: " << k << endl;
         // printArr(P);
         cout << P.size() << " ";
+        bool flag = false;
+        size_t pre = 0;
         for (auto& ch: CHs) {
             ch->upadte(P);
-            time_it(bind(&ConvexHull::work, ref(*ch)));
+            auto res = time_it(bind(&ConvexHull::work, ref(*ch)));
+            // printArr(res);
+            if (flag) {
+                if (res.size() != pre) {
+                    printArr(P);
+                    return -1; // 发现求得凸包大小不同，算法实现有误
+                }
+            }
+            pre = res.size();
+            flag = true;
         }
         cout << endl;
     }
