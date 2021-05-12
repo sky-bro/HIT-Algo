@@ -25,8 +25,10 @@ vector<Point<int>> BruteForceCH::work() {
     for (int a = 0; a < n; ++a) {
         if (P[a].x < 0) continue; // Point::x < 0 -> point deleted
         for (int b = 0; b < n; ++b) {
+            if (P[a].x < 0) break; // important
             if (b == a || P[b].x < 0) continue;
             for (int c = 0; c < n; ++c) {
+                if (P[b].x < 0 || P[a].x < 0) break; // important
                 if (c == a || c == b || P[c].x < 0) continue;
                 // check if abc on same line, if so, delete the middle point
                 if (P[a].cross(P[b], P[c]) == 0) {
