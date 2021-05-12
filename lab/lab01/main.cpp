@@ -34,6 +34,7 @@ int main(int argc, char const *argv[]) {
     // int step = 1, k0 = 0, k1 = 1000;
     for (int k = k0; k <= k1; k += step) {
         vector<Point<int>> P = PointsSampler::sample_k(k);
+        // vector<Point<int>> P = {{0,0}, {1,1}, {2,2}, {3,3}};
         // cout << "sample size: " << k << endl;
         // printArr(P);
         cout << P.size() << " ";
@@ -45,6 +46,7 @@ int main(int argc, char const *argv[]) {
             // printArr(res);
             if (flag) {
                 if (res.size() != pre) {
+                    printArr(res);
                     printArr(P);
                     return -1; // 发现求得凸包大小不同，算法实现有误
                 }

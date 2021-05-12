@@ -34,7 +34,10 @@ vector<Point<int>> GrahamScanCH::work() {
     vector<Point<int>> CH;
     int m = 0;
     for (int i = 0; i <= n; ++i) {
-        while (m >= 2 && CH[m-2].cross(CH[m-1], P[i]) <= 0) CH.pop_back(), --m;
+        while (m >= 2 && CH[m-2].cross(CH[m-1], P[i]) <= 0) {
+            if (i == n && m == 2) break; // 防止所有点都共线，删除了一端端点
+            CH.pop_back(), --m;
+        }
         CH.push_back(P[i]);
         ++m;
     }
