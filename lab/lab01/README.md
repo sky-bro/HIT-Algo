@@ -31,5 +31,6 @@
 ## Refs
 
 * [Convex Hull 演算法笔记](http://web.ntnu.edu.tw/~algo/ConvexHull.html) 包含各种求解凸包问题的算法
-  * 我实现的分治算法是参考的这里的[Convex Hull: Divide and Conquer](http://web.ntnu.edu.tw/~algo/ConvexHull.html#6) 和课件中的比较一致，这里归并采用的是找上下切线，课件里面的归并步骤我没看懂。网上好多用quick hull也是属于分治，不过和课件的分治区别较大
+  * 我实现的分治算法[DivAndConCH.hpp](./DivAndConCH.hpp)是参考的这里的[Convex Hull: Divide and Conquer](http://web.ntnu.edu.tw/~algo/ConvexHull.html#6) 和课件中的比较一致，这里归并采用的是找上下切线，~~课件里面的归并步骤我没看懂。~~网上好多用quick hull也是属于分治，不过和课件的分治区别较大
+  * 也已实现课件里的分治，见[DivAndConCH2.hpp](./DivAndConCH2.hpp)
 * [Reservoir Sampling: An optimal algorithm](https://en.wikipedia.org/wiki/Reservoir_sampling#An_optimal_algorithm) 水池抽样算法参考

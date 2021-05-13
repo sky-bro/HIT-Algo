@@ -24,12 +24,14 @@ public:
 vector<Point<int>> GrahamScanCH::work() {
     int n = P.size();
     if (n == 0) return vector<Point<int>>();
-    swap(P[0], *min_element(P.begin(), P.end()));
+    swap(P[0], *min_element(P.begin(), P.end())); // 极点放到P[0]处
     if (n <= 2) return P;
+    // 按照极角排序，极点为P[0]
     sort(P.begin()+1, P.end(), [&](const auto& a, const auto& b) {
         int c = P[0].cross(a, b);
         return c > 0 || (c == 0 && P[0].dist2(a) < P[0].dist2(b));
     });
+    // GrahamScan
     P.push_back(P[0]); // 处理最后一个点更简单
     vector<Point<int>> CH;
     int m = 0;

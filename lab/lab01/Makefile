@@ -9,7 +9,7 @@ all: $(BINARY)
 $(BINARY): $(OBJECTS)
 	$(CXX) $(CXXFLAGS) $(OBJECTS) -o $@
 
-main.o: Point.hpp PointsSampler.hpp ConvexHull.hpp BruteForceCH.hpp GrahamScanCH.hpp DivAndConCH.hpp
+main.o: Point.hpp PointsSampler.hpp ConvexHull.hpp BruteForceCH.hpp GrahamScanCH.hpp DivAndConCH.hpp DivAndConCH2.hpp
 
 clean:
 	$(RM) $(BINARY) $(OBJECTS)
