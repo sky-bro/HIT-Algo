@@ -17,20 +17,22 @@ ax.set(title='t - K',
 ax2.set(title='log(t) - K',
        ylabel='log(t)', xlabel='sample size (K)')
 
-ys = [[], [], []]
-ys2 = [[], [], []]
+ys = [[], [], [], []]
+ys2 = [[], [], [], []]
 with open(datafile, 'r') as f:
     line = f.readline()
     lo = int(line.split()[0])
     while line:
-        [k, a, b, c] = [float(x) for x in line.split()]
+        [k, a, b, c, d] = [float(x) for x in line.split()]
         hi = k
         ys2[0].append(math.log(max(a, 1e-6))) # 防止时间为0
         ys2[1].append(math.log(max(b, 1e-6)))
         ys2[2].append(math.log(max(c, 1e-6)))
+        ys2[3].append(math.log(max(d, 1e-6)))
         ys[0].append(a)
         ys[1].append(b)
         ys[2].append(c)
+        ys[3].append(d)
         line = f.readline()
 sz = len(ys[0])
 x = np.linspace(lo, hi, sz)
@@ -39,9 +41,11 @@ x = np.linspace(lo, hi, sz)
 ax.plot(x, ys[0], label='BruteForceCH')
 ax.plot(x, ys[1], label='GrahamScanCH')
 ax.plot(x, ys[2], label='DivAndConCH')
+ax.plot(x, ys[3], label='DivAndConCH2')
 ax.legend()
 ax2.plot(x, ys2[0], label='BruteForceCH')
 ax2.plot(x, ys2[1], label='GrahamScanCH')
 ax2.plot(x, ys2[2], label='DivAndConCH')
+ax2.plot(x, ys2[3], label='DivAndConCH2')
 ax2.legend()
 plt.show()
