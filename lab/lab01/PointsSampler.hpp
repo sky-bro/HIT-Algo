@@ -44,8 +44,9 @@ public:
         for (int i = k; i < N;) {
             i += floor(log(rand_real(0, 1))/log(1-W)) + 1;
             if (i < N) {
-                res[rand_int(0, k-1)].x = i/C;
-                res[rand_int(0, k-1)].y = i%C;
+                int idx = rand_int(0, k-1);
+                res[idx].x = i/C;
+                res[idx].y = i%C;
                 W *= exp(log(rand_real(0, 1))/k);
             }
         }
