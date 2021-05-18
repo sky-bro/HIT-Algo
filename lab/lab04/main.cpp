@@ -8,8 +8,6 @@
 
 using namespace std;
 
-const int N = 1e3;
-
 // std::random_device rd;
 // std::mt19937 g(rd());
 default_random_engine g;

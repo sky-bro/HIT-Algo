@@ -44,6 +44,8 @@ void qsort02(vector<int>& A, int l, int r) {
         else if (A[i] < x) swap(A[i++], A[lo++]);
         else swap(A[i], A[hi--]);
     }
+    // ----[x]xx[x]++++
+    //     lo   hi
     qsort02(A, l, lo - 1);
     qsort02(A, hi + 1, r);
 }
