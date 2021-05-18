@@ -1,7 +1,7 @@
 # 实验一: 分治算法
 
 * 实现了水池抽样用来随机生成大小为k的样本点
-* 实现了三种凸包算法: 基于枚举方法(BruteForce), Graham-Scan算法, 分治算法(Divide and Conquer)
+* 实现了三种凸包算法: 基于枚举方法(BruteForce), Graham-Scan算法, 分治算法(Divide and Conquer) -- (两种归并方法)
 * 记录不同算法在不同规模数据集上求解凸包的时间，并绘制算法性能曲线
 
 ## 文件说明
