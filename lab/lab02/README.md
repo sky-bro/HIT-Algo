@@ -7,7 +7,7 @@
 
 ## 使用说明
 
-两个程序`astar.py`和`bi-astar.py`分别对应了单向和双向的`A*`搜索，程序的使用方法完全一致
+两个程序`astar.py`和`biastar.py`分别对应了单向和双向的`A*`搜索，程序的使用方法完全一致
 
 * `pip install pygame` 安装依赖pygame
 * `python astar.py [mapfile.txt]`

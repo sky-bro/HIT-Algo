@@ -404,6 +404,6 @@ if __name__ == "__main__":
     WIDTH = COLS*GAP
     HEIGHT = ROWS*GAP
     WIN = pygame.display.set_mode((WIDTH, HEIGHT))
-    pygame.display.set_caption("A* Path Finding Algorithm")
+    pygame.display.set_caption("Bidirectional A* Path Finding Algorithm")
 
     main(WIN, ROWS, COLS, GAP, grid, start, end)
