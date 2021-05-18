@@ -22,6 +22,7 @@ vector<int> greedy_set_cover(vector<vector<int>> &F, vector<int> &U) {
         }
         for (int x: F[j]) Us.erase(x);
         res.push_back(j);
+        C.insert(j);
     }
     return res;
 }
